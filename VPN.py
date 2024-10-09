@@ -47,6 +47,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     forward_socket.sendall(bytes(actual_message, 'utf-8'))
                     response = forward_socket.recv(1024)
                     conn.sendall(response)
+                    print(f"Received response from server and sent back to client")
             except Exception as e:
                 error_message = f"Error processing message: {str(e)}"
                 print(f"Exception type: {type(e).__name__}, Arguments: {e.args}")
